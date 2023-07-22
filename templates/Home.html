@@ -16,7 +16,7 @@
     #Banner {
       width: 150%;
       height: 360px;
-      object-fit:fill-box;
+      object-fit:cover;
     }
     h2 {
       font-size: 20x;
@@ -39,23 +39,30 @@
         <style>
           #Banner {
             height: 360px;
-            width:150%;
+            width:100%;
             object-fit:cover;
+            margin-bottom: 16px;
           }
         </style>
-  </head>
 </head>
 <body>
-  <div id="container">
+  {% include "nav.html" %}
+   <img class="img-fluid" id="Banner" src="https://f-amon-website.f2691981.repl.co/static/Banner.jpeg">
+  <div class="container">
   <h1 class="text-center mt-2 mb-4"> {{Company_Name}}</h1>
-  <img class="img-fluid" id="Banner" src="https://f-amon-website.f2691981.repl.co/static/Banner.jpeg">
-  <h2 class="text-center mt-2"> About Careers</h2>
+    <div class="row" style="margin-bottom: 16px;">
+      <div class="col-6">
   <p class="lead">
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut auctor dignissim efficitur. Donec in sapien ac diam cursus vestibulum ac nec elit. Proin sagittis vitae mi ut aliquam. Nam porttitor tincidunt lectus a viverra. Curabitur scelerisque porta sem sit amet bibendum. In hac habitasse platea dictumst. Suspendisse posuere tincidunt odio. Cras tempor, est a scelerisque tempus, dolor mauris condimentum enim, at consequat mi tellus ut purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque diam massa, auctor nec turpis et, auctor consectetur erat.
 
 Pellentesque tincidunt tellus sit amet felis viverra maximus. Curabitur ut nisl ut turpis fermentum ullamcorper. Nam vel risus congue, condimentum metus scelerisque, volutpat lectus. Sed et ullamcorper lacus, in interdum nibh. Quisque venenatis augue ut justo congue dignissim. Duis sit amet sem diam. Ut porta dui neque, vel iaculis neque aliquet ac.
   Here,Real Jobs are Posted...
   </p>
+      </div>
+      <div class="col-6">
+      <img src="/static/work.jpeg" style="height:320px;border-radius:4px;">
+      </div>
+    </div>
 <h2 class="text-center mt-2 mb-2">Open Positions</h2>
   <div>
     {% for job in jobs %}
@@ -65,8 +72,8 @@ Pellentesque tincidunt tellus sit amet felis viverra maximus. Curabitur ut nisl 
     
     <div class="text-center">
   <button class="btn btn-primary btn-lg">Contact Us</button>
-      <p class="mt-4">Copy Rights 2023, F_Amon</p>
       <p class="mt-4">www.careers4-all.com</p>
     </div>
+    {% include "footer.html" %}
 </body>
 </html>
