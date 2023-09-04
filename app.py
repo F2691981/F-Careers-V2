@@ -7,14 +7,12 @@ def load_jobs_from_db():
   with engine.connect() as conn:
     result = conn.execute(text("select * from jobs"))
     jobs=[]
-    for row in result.all():
-      jobs.append(row)
+    for rows in result.all():
+      jobs.append(rows)
     return jobs
-
 
 JOBS = load_jobs_from_db()
 jobs = JOBS
-
 
 
 @app.route("/")
@@ -22,7 +20,7 @@ def hello_world():
   jobs = load_jobs_from_db()
   return render_template("Home.html",
                          jobs = JOBS,
-                         Company_Name="Careers4-all")
+                         Company_Name="Careers4-all.org")
   
 @app.route("/api/jobs")
 def list_jobs():
