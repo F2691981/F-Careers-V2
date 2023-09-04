@@ -12,10 +12,6 @@ def load_jobs_from_db():
     for row in result.all():
       jobs.append(row._mapping)
     return jobs
-    
-JOBS = load_jobs_from_db(id)
-jobs = JOBS
-
 
 @app.route("/")
 def hello_world():
