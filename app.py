@@ -15,14 +15,14 @@ def load_jobs_from_db():
 
 @app.route("/")
 def hello_world():
-  jobs = load_jobs_from_db(id)
+  jobs = load_jobs_from_db()
   return render_template("Home.html",
                          jobs = jobs,
                          Company_Name="Careers4-all.org")
   
 @app.route("/api/jobs")
 def list_jobs():
-  jobs = load_jobs_from_db(id)
+  jobs = load_jobs_from_db()
   return jsonify(jobs)
 
 if __name__ == "__main__":
