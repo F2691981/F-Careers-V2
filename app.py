@@ -1,17 +1,19 @@
-from flask import Flask, render_template, jsonify
-from database import engine
-from sqlalchemy import text
+from flask import Flask, render_template,jsonify
+from database import engine,text
 
 app = Flask(__name__)  # how a script is invok
 
-
 def load_jobs_from_db():
   with engine.connect() as conn:
-    result = conn.execute(text("select * from jobs"))
+    result = conn.execute(
+      text("select title, location, salary,currency from jobs"))
     jobs = []
     for row in result.all():
       jobs.append(row._mapping)
     return jobs
+JOBS = load_jobs_from_db()
+jobs = JOBS
+
 
 @app.route("/")
 def hello_world():
