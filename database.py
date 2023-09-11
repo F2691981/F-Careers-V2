@@ -10,3 +10,13 @@ engine = create_engine(
       "ssl_ca": "/etc/ssl/cert.pem"
     }
   })
+
+
+def load_jobs_from_db():
+  with engine.connect() as conn:
+    result = conn.execute(
+      text("select title, location, salary,currency from jobs"))
+    jobs = []
+    for row in result.all():
+      jobs.append(row._mapping)
+    return jobs
